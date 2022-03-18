@@ -4,48 +4,20 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav>
-    <ApolloQuery
-      :query="
-        (gql) =>
-          gql`
-            query {
-              characters {
-                results {
-                  id
-                  name
-                }
-              }
-            }
-          `
-      "
-    >
-      <template v-slot="{ result: { data } }">
-        <div v-if="data">
-          <div v-for="item in data.characters.results" :key="item.id">
-            {{ item.name }}
-          </div>
-        </div>
-      </template>
-    </ApolloQuery>
+
+
     <router-view />
   </div>
 </template>
 <script>
-import gql from "graphql-tag";
+
 export default {
-  name: "App",
-  apollo: {
-    characters: gql`
-      query {
-        characters {
-          results {
-            id
-            name
-          }
-        }
-      }
-    `,
-  },
+    name: "App",
+    components:{
+
+    },
+    
+    
 };
 </script>
 <style>
