@@ -1,0 +1,19 @@
+query Episodes($filter: FilterEpisode) {
+  episodes(filter: $filter) {
+    results {
+      episode
+      name
+      characters {
+        name
+      }
+ 
+    }
+  }
+}
+
+# {
+#   "filter": {
+#     "name": null,
+#     "episode": "S05E01"
+#   }
+# }

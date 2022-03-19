@@ -1,23 +1,22 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <nav class="border-b-4 border-green">
+      <router-link to="/">
+        <img
+          class="mx-auto md:h-36"
+          src="./assets/logo.webp"
+          alt="logo"
+          title="Accueil"
+      /></router-link>
     </nav>
-
-
-    <router-view />
+    <main class="m-4">
+      <router-view />
+    </main>
   </div>
 </template>
 <script>
-
 export default {
-    name: "App",
-    components:{
-
-    },
-    
-    
+  name: "App",
 };
 </script>
 <style>
@@ -31,14 +30,15 @@ export default {
 
 nav {
   padding: 30px;
+  background: #272727;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #303030;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #49cb12;
 }
 </style>

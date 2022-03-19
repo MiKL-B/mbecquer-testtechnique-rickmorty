@@ -1,0 +1,21 @@
+query Characters($filter: FilterCharacter) {
+  characters(filter: $filter) {
+    results {
+      name
+      species
+      status
+      type
+      gender
+    }
+  }
+}
+
+# {
+#   "filter": {
+#     "name": null,
+#     "status": null,
+#     "species": null,
+#     "type": null,
+#     "gender": null
+#   }
+# }
