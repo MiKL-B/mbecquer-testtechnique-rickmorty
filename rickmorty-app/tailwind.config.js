@@ -5,9 +5,10 @@ module.exports = {
    darkMode: false,
    theme: {
      extend: {},
-     colors:{
-      'green':'#49cb12'
-    }
+    //  colors:{
+    //   'green':'#49cb12',
+      
+    // }
    },
    variants: {
      extend: {},

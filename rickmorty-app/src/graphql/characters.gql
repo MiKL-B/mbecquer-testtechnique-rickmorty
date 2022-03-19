@@ -1,21 +1,24 @@
 query Characters($filter: FilterCharacter) {
   characters(filter: $filter) {
     results {
+      id
+      image
       name
       species
       status
       type
       gender
+      origin {
+        name
+        type
+        dimension
+      }
+      location {
+        name
+        type
+        dimension
+      }
     }
   }
 }
 
-# {
-#   "filter": {
-#     "name": null,
-#     "status": null,
-#     "species": null,
-#     "type": null,
-#     "gender": null
-#   }
-# }

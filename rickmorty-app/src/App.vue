@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <nav class="border-b-4 border-green">
-      <router-link to="/">
-        <img
-          class="mx-auto md:h-36"
-          src="./assets/logo.webp"
-          alt="logo"
-          title="Accueil"
-      /></router-link>
+    <nav class="border-b-4 border-green-500 grid grid-cols-2 p-4">
+      <img
+        class="mx-auto md:h-28"
+        src="./assets/logo.webp"
+        alt="logo"
+        title="Accueil"
+      />
+      <router-link to="/" class="my-auto uppercase text-white mx-auto"
+        >accueil</router-link
+      >
     </nav>
-    <main class="m-4">
+    <main class="m-2">
       <router-view />
     </main>
   </div>
@@ -29,16 +31,9 @@ export default {
 }
 
 nav {
-  padding: 30px;
+
   background: #272727;
 }
 
-nav a {
-  font-weight: bold;
-  color: #303030;
-}
 
-nav a.router-link-exact-active {
-  color: #49cb12;
-}
 </style>

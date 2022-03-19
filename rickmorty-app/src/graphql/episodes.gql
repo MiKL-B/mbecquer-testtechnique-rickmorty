@@ -5,6 +5,9 @@ query Episodes($filter: FilterEpisode) {
       name
       characters {
         name
+        species
+        status
+        gender
       }
  
     }
