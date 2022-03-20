@@ -1,5 +1,7 @@
 # rickmorty-app
 
+## Demo
+![demoRickMorty](https://user-images.githubusercontent.com/77576674/159174321-84b9680b-4f7c-48fe-b01f-d40006e94abe.gif)
 ## Clone the project
 
 ```
@@ -35,3 +37,4 @@ npm run build
 ```
 npm run lint
 ```
+
