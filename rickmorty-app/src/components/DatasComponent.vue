@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <ApolloQuery
       :query="require('../graphql/characters.gql')"
       :variables="{ filter }"
@@ -8,17 +8,17 @@
         <!-- Loading -->
         <div v-if="loading">Query is loading.</div>
         <!-- Error -->
-        <div v-else-if="error" title="pas de donnée">
+        <div v-else-if="error" title="pas de données" class="bg-white rounded-sm shadow-2xl my-4 w-96 mx-auto p-4">
           Ce que tu cherches n'a pas été trouvé :
-          <blockquote class="italic text-green-500">
+          <blockquote class="italic text-green ">
             "Personne n'existe délibérément, on a notre place nulle part et tout
             le monde finit par mourir. Viens regarder la télé"
           </blockquote>
         </div>
         <!-- Result -->
-        <div v-else-if="data">
-          <table class="table-auto mx-auto my-4 border-2 border-gray-700">
-            <thead class="bg-gray-700 text-white">
+        <div v-else-if="data" class="p-4">
+          <table class="table-auto w-full my-4 border-2 border-dark">
+            <thead class="bg-dark text-white">
               <tr>
                 <th>Name</th>
                 <th>Species</th>
@@ -26,9 +26,10 @@
                 <th>Gender</th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody class="bg-white">
               <tr
-                class="row cursor-pointer text-xs md:text-lg"
+                class="row cursor-pointer text-sm md:text-lg"
                 v-for="item in data.characters.results"
                 :key="item.id"
                 @click="characterById(item)"
@@ -54,7 +55,6 @@ export default {
   props: ["filter"],
   methods: {
     characterById(id) {
-      console.log(id);
       this.$router.push({ name: "charactersId", params: { id } });
     },
   },
@@ -63,13 +63,14 @@ export default {
 <style>
 @media screen and (min-width: 768px) {
   th {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
   }
   td {
     padding: 1rem 0;
   }
 }
 .row:hover {
-  background: rgba(0, 255, 55, 0.5);
+  background: #b6f89a;
+
 }
 </style>

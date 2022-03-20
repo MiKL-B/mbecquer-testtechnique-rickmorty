@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <nav class="border-b-4 border-green-500 grid grid-cols-2 p-4">
+    <nav class="grid grid-cols-2 m-4">
       <img
         class="mx-auto md:h-28"
         src="./assets/logo.webp"
         alt="logo"
-        title="Accueil"
+        title="Rick & Morty"
       />
-      <router-link to="/" class="my-auto uppercase text-white mx-auto"
-        >accueil</router-link
+      <router-link to="/" class="my-auto uppercase font-bold mx-auto"
+        >home</router-link
       >
     </nav>
-    <main class="m-2">
+    <keep-alive>
       <router-view />
-    </main>
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -27,13 +27,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
-
-nav {
-
-  background: #272727;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-
 </style>
