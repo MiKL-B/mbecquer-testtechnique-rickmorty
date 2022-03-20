@@ -1,40 +1,44 @@
 <template>
-  <div class="grid text-left modal-backdrop">
+  <div class="grid text-left modal-backdrop text-dark">
     <div class="modal p-4">
       <!-- close modal -->
-      <button type="button" class="text-right text-xl" @click="close">x</button>
-      <slot name="header"></slot>
-      <!-- fields -->
-      <slot name="body">
-        <input
-          class="border-2 border-grey px-4 py-2 uppercase focus:border-green-400 outline-none rounded-sm"
-          type="text"
-          :value="name"
-          name="name"
-          placeholder="name"
-          @input="$emit('name', $event.target.value)"
-        />
+      <button type="button" class="text-right text-2xl text-grey" @click="closeForm">
+        x
+      </button>
 
-        <div
-          v-for="input in inputs"
-          :key="input.id"
-          class="grid grid-cols-2 border-b-2 border-grey px-4 py-2 my-2 uppercase"
-        >
-          <label :for="input.label">
-            {{ input.label }}
-          </label>
-          <input
-            :class="input.class"
-            :id="input.label"
-            :type="input.type"
-            :placeholder="input.placeholder"
-            :value="input.value"
-            :name="input.name"
-            @input="$emit(`${input.value}`, $event.target.value)"
-          />
-        </div>
-      </slot>
-      <!-- submit -->
+      <!-- header for error message -->
+      <slot name="header"></slot>
+
+      <!-- field name -->
+      <input
+        class="border-2 border-grey px-4 py-2 uppercase focus:border-green-400 outline-none rounded-sm"
+        type="text"
+        :value="name"
+        name="name"
+        placeholder="name"
+        @input="$emit('name', $event.target.value)"
+      />
+      <!-- fields radios -->
+      <div
+        v-for="input in inputs"
+        :key="input.id"
+        class="grid grid-cols-2 border-b-2 border-grey px-4 py-2 my-2 uppercase"
+      >
+        <label :for="input.label">
+          {{ input.label }}
+        </label>
+        <input
+          :class="input.class"
+          :id="input.label"
+          :type="input.type"
+          :placeholder="input.placeholder"
+          :value="input.value"
+          :name="input.name"
+          @input="$emit(`${input.value}`, $event.target.value)"
+        />
+      </div>
+
+      <!-- button submit -->
       <input
         type="submit"
         class="bg-green text-white py-2 my-4 rounded-sm uppercase cursor-pointer w-full"
@@ -57,7 +61,8 @@ export default {
   },
 
   methods: {
-    close() {
+    //close the form
+    closeForm() {
       this.$emit("close");
     },
   },
@@ -66,42 +71,42 @@ export default {
     return {
       inputs: [
         {
-          id: 2,
+          id: 1,
           label: "human",
           type: "radio",
           value: "human",
           name: "species",
         },
         {
-          id: 3,
+          id: 2,
           label: "alien",
           type: "radio",
           value: "alien",
           name: "species",
         },
         {
-          id: 4,
+          id: 3,
           label: "female",
           type: "radio",
           value: "female",
           name: "gender",
         },
         {
-          id: 5,
+          id: 4,
           label: "male",
           type: "radio",
           value: "male",
           name: "gender",
         },
         {
-          id: 6,
+          id: 5,
           label: "alive",
           type: "radio",
           value: "alive",
           name: "status",
         },
         {
-          id: 7,
+          id: 6,
           label: "dead",
           type: "radio",
           value: "dead",
@@ -122,7 +127,7 @@ input {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,28 +139,5 @@ input {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 15px;
-  display: flex;
-}
-
-.modal-header {
-  position: relative;
-  border-bottom: 1px solid #eeeeee;
-  justify-content: space-between;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.modal-body {
-  position: relative;
-  padding: 20px 10px;
 }
 </style>

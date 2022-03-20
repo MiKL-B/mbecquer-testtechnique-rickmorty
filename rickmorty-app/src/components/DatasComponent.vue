@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- request apollo -->
     <ApolloQuery
       :query="require('../graphql/characters.gql')"
       :variables="{ filter }"
@@ -7,14 +8,24 @@
       <template slot-scope="{ result: { loading, error, data } }">
         <!-- Loading -->
         <div v-if="loading">Query is loading.</div>
+
         <!-- Error -->
-        <div v-else-if="error" title="pas de données" class="bg-white rounded-sm shadow-2xl my-4 w-96 mx-auto p-4">
-          Ce que tu cherches n'a pas été trouvé :
-          <blockquote class="italic text-green ">
-            "Personne n'existe délibérément, on a notre place nulle part et tout
-            le monde finit par mourir. Viens regarder la télé"
-          </blockquote>
+        <div
+          v-else-if="error"
+          class="bg-white rounded-sm shadow-2xl my-4 w-96 mx-auto p-4"
+        >
+          <span>Ce que tu cherches n'a pas été trouvé :</span>
+          <figure class="italic text-grey">
+            <blockquote>
+              <p>
+                "Personne n'existe délibérément, on a notre place nulle part et
+                tout le monde finit par mourir. Viens regarder la télé"
+              </p>
+            </blockquote>
+            <figcaption>-Morty,<cite>Rick & Morty</cite></figcaption>
+          </figure>
         </div>
+
         <!-- Result -->
         <div v-else-if="data" class="p-4">
           <table class="table-auto w-full my-4 border-2 border-dark">
@@ -42,6 +53,7 @@
             </tbody>
           </table>
         </div>
+
         <!-- No result (if the query succeed but there's no data) -->
         <div v-else>No result from the server</div>
       </template>
@@ -71,6 +83,5 @@ export default {
 }
 .row:hover {
   background: #b6f89a;
-
 }
 </style>
